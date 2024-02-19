@@ -42,17 +42,19 @@ class _CalculatorState extends State<Calculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade900,
+      backgroundColor: Colors.orange.shade400,
       body: Padding(
         padding: const EdgeInsets.only(top: 90,left: 20,right: 20),
         child: Column(
           children: [
+            Text('$_result ',style:TextStyle(color: Colors.white,fontSize: 40)),
+            SizedBox(height: 16,),
             Container(
               height: 200,
               width: 400,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                color: Colors.white,
+                color: Colors.white38,
               ),
               child: Column(
                 children: [
@@ -78,7 +80,8 @@ class _CalculatorState extends State<Calculator> {
             Padding(
               padding: const EdgeInsets.only(left: 60,right: 60,top: 10),
               child: Center(
-                child: Wrap(
+                child: Wrap(spacing: 12,
+                  verticalDirection: VerticalDirection.up,
                   children: <Widget>[
                     ElevatedButton(onPressed: () => _calculate('add'), child: Text('+')),
                     ElevatedButton(onPressed: () => _calculate('subtract'), child: Text('-')),
@@ -91,7 +94,6 @@ class _CalculatorState extends State<Calculator> {
                 ),
               ),
             ),
-            Text('-> $_result <-',style:TextStyle(color: Colors.white,fontSize: 40)),
           ],
         ),
       ),
