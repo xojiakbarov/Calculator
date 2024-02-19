@@ -26,7 +26,6 @@ class _CalculatorState extends State<Calculator> {
   final TextEditingController _controllerA = TextEditingController();
   final TextEditingController _controllerB = TextEditingController();
 
-
   Future<void> _calculate(String operation) async {
     final double a = double.parse(_controllerA.text);
     final double b = double.parse(_controllerB.text);
@@ -44,11 +43,14 @@ class _CalculatorState extends State<Calculator> {
     return Scaffold(
       backgroundColor: Colors.orange.shade400,
       body: Padding(
-        padding: const EdgeInsets.only(top: 90,left: 20,right: 20),
+        padding: const EdgeInsets.only(top: 90, left: 20, right: 20),
         child: Column(
           children: [
-            Text('$_result ',style:TextStyle(color: Colors.white,fontSize: 40)),
-            SizedBox(height: 16,),
+            Text('$_result ',
+                style: TextStyle(color: Colors.white, fontSize: 40)),
+            SizedBox(
+              height: 16,
+            ),
             Container(
               height: 200,
               width: 400,
@@ -59,15 +61,15 @@ class _CalculatorState extends State<Calculator> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 150,right: 150),
+                    padding: const EdgeInsets.only(left: 150, right: 150),
                     child: TextField(
                       controller: _controllerA,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(labelText: '       A '),
+                      decoration: InputDecoration(labelText: '        '),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 150,right: 150),
+                    padding: const EdgeInsets.only(left: 150, right: 150),
                     child: TextField(
                       controller: _controllerB,
                       keyboardType: TextInputType.number,
@@ -77,21 +79,60 @@ class _CalculatorState extends State<Calculator> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 60,right: 60,top: 10),
-              child: Center(
-                child: Wrap(spacing: 12,
-                  verticalDirection: VerticalDirection.up,
-                  children: <Widget>[
-                    ElevatedButton(onPressed: () => _calculate('add'), child: Text('+')),
-                    ElevatedButton(onPressed: () => _calculate('subtract'), child: Text('-')),
-                    ElevatedButton(onPressed: () => _calculate('multiply'), child: Text('*')),
-                    ElevatedButton(onPressed: () => _calculate('divide'), child: Text('/')),
-                    ElevatedButton(onPressed: () => _calculate('sqrt'), child: Text('√')),
-                    ElevatedButton(onPressed: () => _calculate('square'), child: Text('x²')),
-                    ElevatedButton(onPressed: () => _calculate('power'), child: Text('^')),
-                  ],
-                ),
+            SizedBox(
+              height: 24,
+            ),
+            Center(
+              child: Wrap(
+                spacing: 12,
+                verticalDirection: VerticalDirection.down,
+                children: <Widget>[
+                  ElevatedButton(
+                      onPressed: () => _calculate('add'),
+                      child: Text(
+                        '+',
+                        style: TextStyle(fontSize: 24),
+                      )),
+                  ElevatedButton(
+                      onPressed: () => _calculate('subtract'),
+                      child: Text(
+                        '-',
+                        style: TextStyle(fontSize: 24),
+                      )),
+                  ElevatedButton(
+                      onPressed: () => _calculate('multiply'),
+                      child: Text(
+                        '*',
+                        style: TextStyle(fontSize: 24),
+                      )),
+                  ElevatedButton(
+                      onPressed: () => _calculate('divide'),
+                      child: Text(
+                        '/',
+                        style: TextStyle(fontSize: 24),
+                      )),
+                  SizedBox(
+                    width: 12,
+                  ),
+                  ElevatedButton(
+                      onPressed: () => _calculate('sqrt'),
+                      child: Text(
+                        '√',
+                        style: TextStyle(fontSize: 24),
+                      )),
+                  ElevatedButton(
+                      onPressed: () => _calculate('square'),
+                      child: Text(
+                        'x²',
+                        style: TextStyle(fontSize: 24),
+                      )),
+                  ElevatedButton(
+                      onPressed: () => _calculate('power'),
+                      child: Text(
+                        '^',
+                        style: TextStyle(fontSize: 24),
+                      )),
+                ],
               ),
             ),
           ],
@@ -100,7 +141,6 @@ class _CalculatorState extends State<Calculator> {
     );
   }
 }
-
 
 double _performCalculation(Map<String, dynamic> args) {
   final double a = args['a'];
